@@ -1,13 +1,13 @@
 <h1>Privacy Policy</h1>
-<p class="meta">Last updated: 23 September 2026 · covers the Cuddleya app (iPhone, Apple Watch, widgets) and this website. The <a href="/datenschutz.html">German version</a> is authoritative.</p>
+<p class="meta">Last updated: 23 September 2026 · covers the Cuddleya app (iPhone and Apple Watch) and this website. The <a href="/datenschutz.html">German version</a> is authoritative.</p>
 
 <div class="card">
   <h3>In short</h3>
   <ul>
-    <li>Cuddleya has no user account, no server of its own, no ads, no analytics and no tracking.</li>
-    <li>What you enter lives on your device and, if you use it, in your own iCloud. The provider cannot access it.</li>
+    <li>Cuddleya has no user account, no server of its own, no ads, no analytics, no tracking and no third-party software.</li>
+    <li>What you enter lives on your device and, as long as you are signed in to iCloud and do not turn it off, in your own iCloud. The provider cannot access it.</li>
     <li>Other people see your entries only if you explicitly invite them.</li>
-    <li>The provider receives personal data only when you get in touch yourself.</li>
+    <li>The provider receives personal data only when you get in touch or take part in a TestFlight test (section 2).</li>
   </ul>
 </div>
 
@@ -20,7 +20,7 @@
 
 <h3>2.1 When you write to us</h3>
 <p>If you write to cuddleya@icloud.com, we process your email address, your message and anything you attach in order to answer you. The legal basis is Art. 6(1)(b) GDPR where your request concerns use of the app, otherwise Art. 6(1)(f) GDPR (legitimate interest in answering requests and improving the app). The mailbox is hosted by Apple (iCloud Mail). Apple may process data in the USA and relies on the EU-US Data Privacy Framework and the EU Standard Contractual Clauses for this. We delete the correspondence once your request is settled, unless a statutory retention period applies.</p>
-<p>The app has a “Diagnostics” page for syncing. You can pass on its log yourself with “Share log”, for example as an attachment to a support email. It contains mainly technical details such as times, states, identifiers and error codes, and you can look at it before sending. It is only sent if you send it.</p>
+<p>Under “iCloud Sync” → “Diagnostics” the app shows a log of the last few minutes of syncing. With “Share log” you can pass it on yourself, for example as an attachment to a support email. It contains the app version, iOS version and device model, times, states and error codes, and technical identifiers of children and entries. Share links are removed and names appear only as “&lt;private&gt;”. You see it before sending, and it is only transmitted if you send it yourself.</p>
 
 <h3>2.2 This website</h3>
 <p>This website is served by GitHub Pages of GitHub, Inc. (88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA). When you visit, GitHub processes technically necessary connection data, in particular your IP address, time, requested page and browser identifier, as a host under its own responsibility. The provider receives no server logs. The legal basis is Art. 6(1)(f) GDPR (legitimate interest in operating the site securely). GitHub is certified under the EU-US Data Privacy Framework; the EU Standard Contractual Clauses apply in addition.</p>
@@ -33,43 +33,52 @@
   <li><strong>App Store:</strong> aggregated download and usage figures, and crash reports only if you agreed in iOS Settings to share with app developers.</li>
   <li><strong>TestFlight:</strong> if you take part in a test, the provider sees the email address and name you were invited with, plus any feedback, screenshots and crash reports you send through TestFlight.</li>
 </ul>
-<p>The legal basis is Art. 6(1)(b) GDPR (running the test) or (f) (fixing errors). The data stays with Apple in App Store Connect and is deleted when the test ends or you leave it.</p>
+<p>The legal basis is Art. 6(1)(b) GDPR (running the test) or (f) (fixing errors). This data is held by Apple in App Store Connect. Retention and deletion follow Apple's rules for TestFlight.</p>
 
 <h2>3. The data in the app</h2>
 <p>Depending on what you use, Cuddleya stores:</p>
 <ul>
-  <li><strong>About your child:</strong> name, date of birth, due date, sex and optionally a photo.</li>
-  <li><strong>Entries:</strong> sleep, breastfeeding, bottle, solids, pumping, diapers, medication, measurements (e.g. height and weight), appointments and notes, each with time and time zone.</li>
-  <li><strong>Who made an entry:</strong> a random identifier per device and, if you set one, a name that people you share with see next to your entries.</li>
-  <li><strong>Settings</strong> such as notifications and display.</li>
+  <li><strong>About your child:</strong> name, date of birth, due date, sex and optionally a photo. The app scales the photo down and saves it again without metadata such as the location where it was taken.</li>
+  <li><strong>Entries:</strong> sleep (including where), breastfeeding, bottle, solids (including foods and reactions), pumping, diapers (including stool and rash), medication (name, dose, reason), measurements (height, weight, head circumference, temperature), markers (e.g. “unusual day”), appointments and notes, each with time and time zone. Deleted entries stay in the trash for 30 days.</li>
+  <li><strong>Who made an entry:</strong> a random identifier for this installation of the app, the pseudonymous identifier iCloud uses to attribute your entries to your account (people you share with have it in their app, not as a name), and, if you set one in the Child tab under “Your name for others”, a name that people you share with see next to your entries.</li>
+  <li><strong>For the sleep forecast:</strong> a model per child and a log of earlier forecasts. The app calculates both only on the device. They are not synced or exported, but are part of backups.</li>
+  <li><strong>Settings</strong> such as notifications, units and display.</li>
 </ul>
-<p>Some of this, such as medication, sleep or weight, is health data about your child. That is why it leaves your device only in the ways described in section 4, and none of them leads to the provider.</p>
+<p>Much of this is health data, mostly about your child and partly about you (e.g. breastfeeding and pumping). It leaves your device only in the ways described in section 4. None of them leads to the provider.</p>
 <p>If you use Cuddleya for your own family, this is a purely personal or household activity to which the GDPR does not apply (Art. 2(2)(c)). The provider does not process this data, has no access to it and is not a processor for it.</p>
-<p>All calculations, including hints such as the next sleep window, run on your device.</p>
 
 <h2>4. Where the data lives and who sees it</h2>
 <dl>
-  <dt>On your devices</dt>
-  <dd>In the app, its widgets and on your paired Apple Watch. iPhone and Watch exchange entries directly via Apple's WatchConnectivity.</dd>
+  <dt>On your iPhone</dt>
+  <dd>In the app's database. While a sleep or breastfeeding timer runs, a Live Activity on the lock screen and in the Dynamic Island shows your child's name and the timer.</dd>
 
-  <dt>In your iCloud (optional)</dt>
-  <dd>With syncing on, the app stores entries in the private CloudKit database of your iCloud account so that your devices stay in step. Apple encrypts the data in transit and on its servers. The provider cannot see this database. Storage at Apple is governed by Apple's iCloud terms and privacy policy; within the EU the iCloud provider is Apple Distribution International Ltd., Ireland. You can turn syncing off in the app.</dd>
+  <dt>On your Apple Watch</dt>
+  <dd>Through Apple's WatchConnectivity, the iPhone sends your children's names and dates of birth and any running timers to the watch. New entries made on the watch travel the same way to the iPhone. The watch can show your child's name on the watch face.</dd>
+
+  <dt>In your iCloud</dt>
+  <dd>If you are signed in to iCloud, syncing is on from the start. The app then stores the details of your children (including the photo), the entries including the trash, and who made them in the private CloudKit database of your iCloud account, so that your devices show the same data. For syncing, the app receives invisible notifications from Apple's iCloud services, not from the provider. Apple encrypts the data in transit and on its servers. It is not end-to-end encrypted; Apple manages the keys. The provider cannot see this database. Storage at Apple is governed by Apple's iCloud terms and privacy policy; within the EU the iCloud provider is Apple Distribution International Ltd., Ireland. You can turn syncing off in the Child tab with “Sync with iCloud”. What is already in iCloud stays there until you delete it (section 7).</dd>
 
   <dt>With people you invite (optional)</dt>
-  <dd>You can share a child with others, for example your partner. Sharing runs through iCloud and is invitation-only. Invited people see and edit everything about that child: details, photo, entries and the names shown with entries. If you stop sharing, they lose access.</dd>
+  <dd>You can share a child with others through iCloud, for example your partner. This works by invitation only. The invitation carries the child's name, and Apple's sharing dialog shows participants each other's names or contact details from their Apple Accounts. Invited people see everything about that child: details, photo, entries and the names shown with entries. They can also add and change entries, edit the child's details, archive the child (which applies for everyone), and create exports, backups and reports. What they enter is stored in your iCloud. If you stop sharing, they receive no further data; the app hides the child on their devices and deletes it there later. Copies they made themselves beforehand are not affected.</dd>
 
   <dt>In backups</dt>
-  <dd>The app regularly creates backups on your device by itself. They are excluded from the iOS device backup. A backup leaves the device only if you pass it on yourself through the share menu, for example to the Files app or via AirDrop.</dd>
+  <dd>By default the app makes a backup on your device at most once a day when you open it and something has changed since the last one; the three most recent automatic backups are kept. You can turn this off in the Child tab under “Backups” with “Back up daily”. A backup is a complete copy of the app's database: all children, including those shared with you, all entries including the trash, and the sleep forecast data, but not the settings. Backups are excluded from the iOS device backup. A backup leaves the device only if you pass it on yourself with “Share”, for example to the Files app or via AirDrop. A backup you pass on is not encrypted, and its file name contains the random installation identifier. You can also read backups back in from a file.</dd>
+
+  <dt>In exports (optional)</dt>
+  <dd>“Export Data” in the Child tab creates an unencrypted file with all children (including the photo) and all entries, including the trash. You decide where it goes through the share menu. The app can also read such a file back in.</dd>
 
   <dt>In reports (optional)</dt>
   <dd>The app creates PDF reports on the device. You decide where one goes through the share menu.</dd>
+
+  <dt>In your iPhone backup</dt>
+  <dd>As with most apps, the app's data, its settings and the stored location value are part of your iPhone backup (iCloud Backup or computer) if you use one. This also applies when syncing is off. Only the app's own backups are excluded.</dd>
 </dl>
 
 <h2>5. Permissions</h2>
-<p>The app asks only when you use the feature concerned, and you can revoke every permission in iOS Settings.</p>
+<p>You can revoke every permission in iOS Settings.</p>
 <ul>
-  <li><strong>Location (approximate, once):</strong> only so the day axis can show sunrise and sunset. The position is rounded to about one kilometre and stored only on the device. It is not synced, shared or exported. Without it the app works as usual, just without sun times.</li>
-  <li><strong>Notifications:</strong> hints, for example about the next sleep window, are scheduled locally on the device. There are no push messages from a server of the provider. They may appear on the lock screen and show your child's name there, which you can adjust in iOS Settings.</li>
+  <li><strong>Location:</strong> the first time you open the “Today” view, the app asks once for your location, only so the day axis can show sunrise and sunset. The app rounds the position to about one kilometre and stores only this rounded value in its settings on the device. It is not synced, shared or exported and is not included in backups, reports or the diagnostics log. If you revoke the permission later, the app keeps using the stored value until you delete the app. Without location the app works as usual, just without sun times.</li>
+  <li><strong>Notifications:</strong> the app's only notification is the hint about the next sleep window. It is scheduled locally on the device and names your child, including on the lock screen. You can adjust this in iOS Settings. The provider sends no push messages.</li>
   <li><strong>Photos:</strong> for your child's photo the app uses the iOS photo picker. It sees only the one picture you choose, not your library.</li>
 </ul>
 
@@ -78,18 +87,20 @@
 
 <h2>7. Retention and deletion</h2>
 <ul>
-  <li>Entries are kept until you delete them. If you delete an entry in the app while syncing is on, it is removed from your iCloud too.</li>
-  <li>Deleting the app removes the data on the device, including backups there. Data in your iCloud remains until you delete it in iOS Settings under your name → iCloud → Manage Storage.</li>
-  <li>Backups you passed on yourself remain wherever you put them.</li>
+  <li>Entries are kept until you delete them. Deleted entries first go to the trash for 30 days, and with syncing on also in iCloud. After that, or as soon as you choose “Empty Trash”, they are removed from your iCloud too.</li>
+  <li>“Delete Permanently” on a child you own (under “Archived Children”) removes it with all its entries from iCloud as well, for everyone it is shared with.</li>
+  <li>Entries you make for a child shared with you are stored in the iCloud of the person who shared it and remain there, even if you leave the share.</li>
+  <li>Deleting the app removes its data and backups on the device. The exception is the random installation identifier in the keychain, which survives a reinstall. Data in your iCloud remains until you delete it in the app or in iOS Settings under iCloud storage management. Copies in iPhone backups remain until those backups are deleted.</li>
+  <li>Backups, exports and reports you passed on remain wherever you put them.</li>
   <li>Emails to the provider are deleted once the request is settled.</li>
 </ul>
 
 <h2>8. Your rights</h2>
 <p>For the processing in section 2 you have the right of access (Art. 15 GDPR), rectification (Art. 16), erasure (Art. 17), restriction (Art. 18), data portability (Art. 20) and objection (Art. 21) against the provider. Write to cuddleya@icloud.com. You also have the right to lodge a complaint with a data protection supervisory authority (Art. 77 GDPR).</p>
-<p>You manage the data in the app yourself: you can view, change and delete it at any time and take it with you as a backup or report.</p>
+<p>You manage the data in the app yourself: you can view, change and delete it at any time and take it with you as an export, backup or report.</p>
 
 <h2>9. No automated decisions</h2>
-<p>Cuddleya makes no automated decisions within the meaning of Art. 22 GDPR and builds no profiles. Hints such as the sleep window are guidance computed only on your device from your own entries.</p>
+<p>Cuddleya makes no automated decisions within the meaning of Art. 22 GDPR and builds no profiles for advertising or analytics. The sleep forecast evaluates your entries only on your device. It is guidance and does not replace medical advice.</p>
 
 <h2>10. Changes</h2>
 <p>If the app changes in a way that affects privacy, we update this policy. The current version at <a href="https://cuddleya.de/en/privacy.html">cuddleya.de/en/privacy.html</a> applies.</p>

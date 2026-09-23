@@ -1,13 +1,13 @@
 <h1>Datenschutzerklärung</h1>
-<p class="meta">Stand: 23.09.2026 · gilt für die App Cuddleya (iPhone, Apple Watch, Widgets) und diese Website</p>
+<p class="meta">Stand: 23.09.2026 · gilt für die App Cuddleya (iPhone und Apple Watch) und diese Website</p>
 
 <div class="card">
   <h3>Kurz gesagt</h3>
   <ul>
-    <li>Cuddleya hat kein Nutzerkonto, keinen eigenen Server, keine Werbung, keine Analyse und kein Tracking.</li>
-    <li>Was du einträgst, liegt auf deinem Gerät und, wenn du es nutzt, in deinem eigenen iCloud. Der Anbieter hat darauf keinen Zugriff.</li>
+    <li>Cuddleya hat kein Nutzerkonto, keinen eigenen Server, keine Werbung, keine Analyse, kein Tracking und keine Software von Drittanbietern.</li>
+    <li>Was du einträgst, liegt auf deinem Gerät und, solange du bei iCloud angemeldet bist und es nicht abschaltest, in deinem eigenen iCloud. Der Anbieter hat darauf keinen Zugriff.</li>
     <li>Andere Personen sehen die Einträge nur, wenn du sie ausdrücklich einlädst.</li>
-    <li>Personenbezogene Daten erhält der Anbieter nur, wenn du ihm selbst schreibst.</li>
+    <li>Personenbezogene Daten erhält der Anbieter nur, wenn du ihm schreibst oder an einem TestFlight-Test teilnimmst (Abschnitt 2).</li>
   </ul>
 </div>
 
@@ -20,7 +20,7 @@
 
 <h3>2.1 Wenn du uns schreibst</h3>
 <p>Schreibst du an cuddleya@icloud.com, verarbeiten wir deine E-Mail-Adresse, deine Nachricht und alles, was du selbst anhängst, um deine Anfrage zu beantworten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit es um die Nutzung der App geht, sonst Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse, Anfragen zu beantworten und die App zu verbessern). Das Postfach wird bei Apple (iCloud Mail) geführt. Apple kann Daten dabei auch in den USA verarbeiten und stützt sich dafür auf das EU-US Data Privacy Framework und die EU-Standardvertragsklauseln. Wir löschen die Korrespondenz, sobald die Anfrage erledigt ist, sofern keine gesetzliche Aufbewahrungspflicht entgegensteht.</p>
-<p>Die App hat eine Seite „Diagnose“ für die Synchronisation. Deren Protokoll kannst du mit „Protokoll teilen“ selbst weitergeben, etwa als Anhang an eine Support-Mail. Es enthält vor allem technische Angaben wie Zeitpunkte, Zustände, Kennungen und Fehlercodes; du kannst es vor dem Senden ansehen. Übertragen wird es nur, wenn du es selbst verschickst.</p>
+<p>Unter „iCloud-Sync“ → „Diagnose“ zeigt die App ein Protokoll der Synchronisation der letzten Minuten. Mit „Protokoll teilen“ kannst du es selbst weitergeben, etwa als Anhang an eine Support-Mail. Es enthält App-Version, iOS-Version und Gerätemodell, Zeitpunkte, Zustände und Fehlercodes sowie technische Kennungen von Kindern und Einträgen. Freigabe-Links sind entfernt, Namen erscheinen nur als „&lt;private&gt;“. Du siehst es vor dem Senden, und übertragen wird es nur, wenn du es selbst verschickst.</p>
 
 <h3>2.2 Diese Website</h3>
 <p>Die Website wird über GitHub Pages der GitHub, Inc. (88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA) ausgeliefert. Beim Aufruf verarbeitet GitHub technisch notwendige Verbindungsdaten, insbesondere deine IP-Adresse, Zeitpunkt, abgerufene Seite und Browserkennung. GitHub tut das als Hoster in eigener Verantwortung. Der Anbieter erhält keine Server-Protokolle. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem sicheren Betrieb der Seite). GitHub ist unter dem EU-US Data Privacy Framework zertifiziert, ergänzend gelten die EU-Standardvertragsklauseln.</p>
@@ -33,43 +33,52 @@
   <li><strong>App Store:</strong> zusammengefasste Download- und Nutzungszahlen sowie Absturzberichte, letztere nur, wenn du in den iOS-Einstellungen dem Teilen mit Entwicklern zugestimmt hast.</li>
   <li><strong>TestFlight:</strong> Nimmst du am Test teil, sieht der Anbieter die E-Mail-Adresse und den Namen, mit denen du eingeladen wurdest, sowie Feedback, Bildschirmfotos und Absturzberichte, die du über TestFlight abschickst.</li>
 </ul>
-<p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Durchführung des Tests) bzw. lit. f (Fehler beheben). Die Daten bleiben bei Apple in App Store Connect und werden gelöscht, wenn der Test endet oder du ihn verlässt.</p>
+<p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Durchführung des Tests) bzw. lit. f (Fehler beheben). Diese Daten liegen bei Apple in App Store Connect. Aufbewahrung und Löschung richten sich nach Apples Regeln für TestFlight.</p>
 
 <h2>3. Die Daten in der App</h2>
 <p>Je nachdem, was du nutzt, speichert Cuddleya:</p>
 <ul>
-  <li><strong>Angaben zum Kind:</strong> Name, Geburtsdatum, errechneter Geburtstermin, Geschlecht und optional ein Foto.</li>
-  <li><strong>Einträge:</strong> Schlaf, Stillen, Flasche, Beikost, Abpumpen, Windeln, Medikamente, Messwerte (z. B. Größe und Gewicht), Termine und Notizen, jeweils mit Zeit und Zeitzone.</li>
-  <li><strong>Wer eingetragen hat:</strong> eine zufällige Kennung pro Gerät und, falls du ihn in den Einstellungen angibst, ein Name, den Mitlesende bei deinen Einträgen sehen.</li>
-  <li><strong>Einstellungen</strong> wie Mitteilungen und Anzeige.</li>
+  <li><strong>Angaben zum Kind:</strong> Name, Geburtsdatum, errechneter Geburtstermin, Geschlecht und optional ein Foto. Das Foto verkleinert die App und speichert es ohne Metadaten wie den Aufnahmeort neu.</li>
+  <li><strong>Einträge:</strong> Schlaf (auch Schlafort), Stillen, Flasche, Beikost (auch Lebensmittel und Reaktionen), Abpumpen, Windeln (auch Stuhl und Ausschlag), Medikamente (Name, Dosis, Grund), Messwerte (Größe, Gewicht, Kopfumfang, Temperatur), Markierungen (z. B. „ungewöhnlicher Tag“), Termine und Notizen, jeweils mit Zeit und Zeitzone. Gelöschte Einträge bleiben 30 Tage im Papierkorb.</li>
+  <li><strong>Wer eingetragen hat:</strong> eine zufällige Kennung dieser App-Installation, die pseudonyme Kennung, mit der iCloud deine Einträge deinem Konto zuordnet (Mitlesende haben sie in ihrer App, nicht als Namen), und, falls du ihn im Kind-Tab unter „Dein Name für andere“ angibst, ein Name, den Mitlesende bei deinen Einträgen sehen.</li>
+  <li><strong>Für die Schlafprognose:</strong> ein Modell je Kind und ein Protokoll früherer Prognosen. Beides berechnet die App nur auf dem Gerät. Es wird nicht synchronisiert und nicht exportiert, ist aber Teil der Sicherungen.</li>
+  <li><strong>Einstellungen</strong> wie Mitteilungen, Einheiten und Anzeige.</li>
 </ul>
-<p>Manche dieser Angaben, etwa zu Medikamenten, Schlaf oder Gewicht, sind Gesundheitsdaten deines Kindes. Deshalb verlassen sie dein Gerät nur auf den in Abschnitt 4 beschriebenen Wegen, und keiner davon führt zum Anbieter.</p>
+<p>Viele dieser Angaben sind Gesundheitsdaten, meist deines Kindes, teils auch deine eigenen (z. B. Stillen und Abpumpen). Sie verlassen dein Gerät nur auf den in Abschnitt 4 beschriebenen Wegen. Keiner davon führt zum Anbieter.</p>
 <p>Verwendest du Cuddleya für deine eigene Familie, ist das eine persönliche bzw. familiäre Tätigkeit, für die die DSGVO nach Art. 2 Abs. 2 lit. c nicht gilt. Der Anbieter verarbeitet diese Daten nicht, hat keinen Zugriff darauf und ist dafür auch kein Auftragsverarbeiter.</p>
-<p>Alle Berechnungen, auch Hinweise wie das nächste Schlaffenster, finden auf deinem Gerät statt.</p>
 
 <h2>4. Wo die Daten liegen und wer sie sieht</h2>
 <dl>
-  <dt>Auf deinen Geräten</dt>
-  <dd>In der App, in ihren Widgets und auf deiner gekoppelten Apple Watch. iPhone und Watch tauschen Einträge direkt über Apples WatchConnectivity aus.</dd>
+  <dt>Auf deinem iPhone</dt>
+  <dd>In der Datenbank der App. Läuft ein Schlaf- oder Stillen-Timer, zeigt eine Live-Aktivität auf dem Sperrbildschirm und in der Dynamic Island den Namen deines Kindes und den Timer.</dd>
 
-  <dt>In deinem iCloud (optional)</dt>
-  <dd>Ist die Synchronisation eingeschaltet, speichert die App die Einträge in der privaten CloudKit-Datenbank deines iCloud-Kontos, damit sie auf deinen Geräten gleich sind. Apple verschlüsselt die Daten bei der Übertragung und auf seinen Servern. Der Anbieter kann diese Datenbank nicht einsehen. Für die Speicherung bei Apple gelten die iCloud-Bedingungen und die Datenschutzrichtlinie von Apple. Anbieter von iCloud in der EU ist die Apple Distribution International Ltd., Irland. Du kannst die Synchronisation in der App ausschalten.</dd>
+  <dt>Auf deiner Apple Watch</dt>
+  <dd>Das iPhone überträgt über Apples WatchConnectivity die Namen und Geburtsdaten deiner Kinder und laufende Timer an die Uhr. Neue Einträge auf der Uhr gehen auf demselben Weg ans iPhone. Die Uhr kann den Namen deines Kindes auf dem Zifferblatt zeigen.</dd>
+
+  <dt>In deinem iCloud</dt>
+  <dd>Bist du bei iCloud angemeldet, ist die Synchronisation von Anfang an eingeschaltet. Die App speichert dann die Angaben zu deinen Kindern (einschließlich Foto), die Einträge samt Papierkorb und die Angaben dazu, wer eingetragen hat, in der privaten CloudKit-Datenbank deines iCloud-Kontos, damit deine Geräte denselben Stand haben. Für die Synchronisation erhält die App unsichtbare Benachrichtigungen von Apples iCloud-Diensten, nicht vom Anbieter. Apple verschlüsselt die Daten bei der Übertragung und auf seinen Servern. Sie sind nicht Ende-zu-Ende verschlüsselt, die Schlüssel verwaltet Apple. Der Anbieter kann diese Datenbank nicht einsehen. Für die Speicherung bei Apple gelten die iCloud-Bedingungen und die Datenschutzrichtlinie von Apple. Anbieter von iCloud in der EU ist die Apple Distribution International Ltd., Irland. Du kannst die Synchronisation im Kind-Tab mit „Mit iCloud synchronisieren“ ausschalten. Was bereits in iCloud liegt, bleibt dort, bis du es löschst (Abschnitt 7).</dd>
 
   <dt>Bei Personen, die du einlädst (optional)</dt>
-  <dd>Du kannst ein Kind mit anderen teilen, zum Beispiel mit deinem Partner. Die Freigabe läuft über iCloud und nur auf Einladung. Eingeladene sehen und bearbeiten alles zu diesem Kind: Angaben, Foto, Einträge und die Namen, die bei Einträgen stehen. Beendest du die Freigabe, verlieren sie den Zugriff.</dd>
+  <dd>Du kannst ein Kind über iCloud mit anderen teilen, zum Beispiel mit deinem Partner oder deiner Partnerin. Das geht nur auf Einladung. Die Einladung trägt den Namen des Kindes, und Apples Freigabedialog zeigt den Beteiligten die Namen bzw. Kontaktangaben der anderen aus deren Apple-Account. Eingeladene sehen alles zu diesem Kind: Angaben, Foto, Einträge und die Namen, die bei Einträgen stehen. Sie können auch Einträge anlegen und ändern, die Angaben zum Kind bearbeiten, das Kind archivieren (das gilt dann für alle) sowie Exporte, Sicherungen und Berichte erstellen. Was sie eintragen, liegt in deinem iCloud. Beendest du die Freigabe, erhalten sie keine neuen Daten mehr. Die App blendet das Kind auf ihren Geräten aus und löscht es dort später. Kopien, die sie vorher selbst angelegt haben, bleiben davon unberührt.</dd>
 
   <dt>In Sicherungen</dt>
-  <dd>Die App legt regelmäßig selbst Sicherungen auf deinem Gerät an. Sie sind vom iOS-Gerätebackup ausgenommen. Eine Sicherung verlässt das Gerät nur, wenn du sie selbst über das Teilen-Menü weitergibst, etwa in die Dateien-App oder per AirDrop.</dd>
+  <dd>Die App legt ab Werk höchstens einmal am Tag eine Sicherung auf deinem Gerät an, wenn du sie öffnest und sich seit der letzten etwas geändert hat. Die letzten drei automatischen Sicherungen bleiben erhalten. Das kannst du im Kind-Tab unter „Sicherungen“ mit „Täglich sichern“ abschalten. Eine Sicherung ist eine vollständige Kopie der Datenbank der App: alle Kinder, auch solche, die mit dir geteilt sind, alle Einträge samt Papierkorb und die Daten der Schlafprognose, aber nicht die Einstellungen. Sicherungen sind vom iOS-Gerätebackup ausgenommen. Eine Sicherung verlässt das Gerät nur, wenn du sie selbst mit „Teilen“ weitergibst, etwa in die Dateien-App oder per AirDrop. Eine weitergegebene Sicherung ist nicht verschlüsselt, und ihr Dateiname enthält die zufällige Kennung der Installation. Du kannst Sicherungen auch aus einer Datei wieder einlesen.</dd>
+
+  <dt>Im Export (optional)</dt>
+  <dd>Mit „Daten exportieren“ im Kind-Tab erstellt die App eine nicht verschlüsselte Datei mit allen Kindern (einschließlich Foto) und allen Einträgen, auch aus dem Papierkorb. Wohin sie geht, bestimmst du über das Teilen-Menü. Die App kann eine solche Datei auch wieder einlesen.</dd>
 
   <dt>In Berichten (optional)</dt>
   <dd>Einen PDF-Bericht erstellt die App auf dem Gerät. Wohin er geht, bestimmst du über das Teilen-Menü.</dd>
+
+  <dt>Im Backup deines iPhones</dt>
+  <dd>Wie bei den meisten Apps sind die Daten der App, ihre Einstellungen und der gespeicherte Standortwert Teil deines iPhone-Backups (iCloud-Backup oder Computer), sofern du eines nutzt. Das gilt auch, wenn die Synchronisation ausgeschaltet ist. Ausgenommen sind nur die Sicherungen der App.</dd>
 </dl>
 
 <h2>5. Berechtigungen</h2>
-<p>Die App fragt erst, wenn du die jeweilige Funktion nutzt, und du kannst jede Berechtigung in den iOS-Einstellungen wieder entziehen.</p>
+<p>Jede Berechtigung kannst du in den iOS-Einstellungen wieder entziehen.</p>
 <ul>
-  <li><strong>Standort (ungefähr, einmalig):</strong> nur, damit die Tagesachse Sonnenauf- und -untergang zeigen kann. Die Position wird auf etwa einen Kilometer gerundet und nur auf dem Gerät gespeichert. Sie wird nicht synchronisiert, nicht geteilt und nicht exportiert. Ohne Standort funktioniert die App wie gewohnt, nur ohne Sonnenzeiten.</li>
-  <li><strong>Mitteilungen:</strong> Hinweise, etwa auf das nächste Schlaffenster, plant die App lokal auf dem Gerät. Es gibt keine Push-Nachrichten von einem Server des Anbieters. Sie können auf dem Sperrbildschirm erscheinen und dort z. B. den Namen deines Kindes zeigen. Das kannst du in den iOS-Einstellungen anpassen.</li>
+  <li><strong>Standort:</strong> Beim ersten Öffnen der Ansicht „Heute“ fragt die App einmalig nach deinem Standort, nur damit die Tagesachse Sonnenauf- und -untergang zeigen kann. Die App rundet die Position auf etwa einen Kilometer und speichert nur diesen gerundeten Wert in ihren Einstellungen auf dem Gerät. Er wird nicht synchronisiert, nicht geteilt und nicht exportiert und steht nicht in Sicherungen, Berichten oder im Diagnoseprotokoll. Entziehst du die Berechtigung später, nutzt die App den gespeicherten Wert weiter, bis du die App löschst. Ohne Standort funktioniert die App wie gewohnt, nur ohne Sonnenzeiten.</li>
+  <li><strong>Mitteilungen:</strong> Die einzige Mitteilung der App ist der Hinweis auf das nächste Schlaffenster. Sie wird lokal auf dem Gerät geplant und nennt den Namen deines Kindes, auch auf dem Sperrbildschirm. Das kannst du in den iOS-Einstellungen anpassen. Vom Anbieter kommen keine Push-Nachrichten.</li>
   <li><strong>Fotos:</strong> Für das Foto deines Kindes nutzt die App die Fotoauswahl von iOS. Die App sieht nur das eine Bild, das du auswählst, nicht deine Mediathek.</li>
 </ul>
 
@@ -78,18 +87,20 @@
 
 <h2>7. Speicherdauer und Löschen</h2>
 <ul>
-  <li>Einträge bleiben gespeichert, bis du sie löschst. Löschst du bei eingeschalteter Synchronisation einen Eintrag in der App, wird er auch in deinem iCloud entfernt.</li>
-  <li>Löschst du die App, verschwinden die Daten auf dem Gerät, einschließlich der Sicherungen dort. Was in deinem iCloud liegt, bleibt bestehen, bis du es in den iOS-Einstellungen unter deinem Namen → iCloud → Speicher verwalten löschst.</li>
-  <li>Sicherungen, die du selbst weitergegeben hast, liegen dort, wo du sie abgelegt hast.</li>
+  <li>Einträge bleiben gespeichert, bis du sie löschst. Gelöschte Einträge kommen zunächst für 30 Tage in den Papierkorb, bei eingeschalteter Synchronisation auch in iCloud. Danach, oder sobald du „Papierkorb leeren“ wählst, werden sie auch aus deinem iCloud entfernt.</li>
+  <li>„Endgültig löschen“ bei einem Kind, das dir gehört (unter „Archivierte Kinder“), entfernt es mit allen Einträgen auch aus iCloud, und zwar für alle, mit denen es geteilt ist.</li>
+  <li>Einträge, die du bei einem mit dir geteilten Kind machst, liegen im iCloud der Person, die es geteilt hat, und bleiben dort, auch wenn du die Freigabe verlässt.</li>
+  <li>Löschst du die App, verschwinden ihre Daten und Sicherungen auf dem Gerät. Ausnahme ist die zufällige Kennung der Installation im Schlüsselbund, die eine Neuinstallation übersteht. Was in deinem iCloud liegt, bleibt bestehen, bis du es in der App oder in den iOS-Einstellungen in der iCloud-Speicherverwaltung löschst. Kopien in iPhone-Backups bleiben, bis diese Backups gelöscht werden.</li>
+  <li>Sicherungen, Exporte und Berichte, die du weitergegeben hast, liegen dort, wo du sie abgelegt hast.</li>
   <li>E-Mails an den Anbieter werden gelöscht, sobald die Anfrage erledigt ist.</li>
 </ul>
 
 <h2>8. Deine Rechte</h2>
 <p>Für die Verarbeitungen in Abschnitt 2 hast du gegenüber dem Anbieter das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch (Art. 21). Schreib dafür an cuddleya@icloud.com. Du hast außerdem das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (Art. 77 DSGVO).</p>
-<p>Die Daten in der App verwaltest du selbst: Du kannst sie jederzeit ansehen, ändern, löschen und als Sicherung oder Bericht mitnehmen.</p>
+<p>Die Daten in der App verwaltest du selbst: Du kannst sie jederzeit ansehen, ändern und löschen und als Export, Sicherung oder Bericht mitnehmen.</p>
 
 <h2>9. Keine automatisierten Entscheidungen</h2>
-<p>Cuddleya trifft keine automatisierten Entscheidungen im Sinne von Art. 22 DSGVO und erstellt keine Profile. Hinweise wie das Schlaffenster sind eine Orientierung, die nur auf deinem Gerät aus deinen eigenen Einträgen berechnet wird.</p>
+<p>Cuddleya trifft keine automatisierten Entscheidungen im Sinne von Art. 22 DSGVO und erstellt keine Profile zu Werbe- oder Analysezwecken. Die Schlafprognose wertet deine Einträge ausschließlich auf deinem Gerät aus. Sie ist eine Orientierung und ersetzt keinen ärztlichen Rat.</p>
 
 <h2>10. Änderungen</h2>
 <p>Ändert sich die App so, dass es den Datenschutz betrifft, passen wir diese Erklärung an. Es gilt die jeweils aktuelle Fassung unter <a href="https://cuddleya.de/datenschutz.html">cuddleya.de/datenschutz.html</a>.</p>
