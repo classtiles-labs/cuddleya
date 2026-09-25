@@ -10,7 +10,9 @@ FORBIDDEN = {
     "de": r"besser schlaf|mehr schlaf|durchschlaf|\bgenau|präzis|zuverlässig|garantie|\bKI\b|künstliche intelligenz|intelligent|wissenschaftlich|klinisch|empfohlen von|nie wieder|\d\s?%",
     "en": r"sleep better|more sleep|sleep through|accura|precis|reliab|guarantee|\bAI\b|artificial intelligence|\bsmart|intelligen|scientific|clinical|recommended by|never again|\d\s?%",
 }
-SECRETS = (ROOT / ".secret-words").read_text().strip() if (ROOT / ".secret-words").exists() else r"(?!)"
+# Begriffe, die das Prognose-Verfahren verraten würden. Die Liste liegt nicht im (öffentlichen) Repo,
+# sondern lokal in .secret-words und im privaten App-Repo (docs/website/).
+SECRETS_FILE = ROOT / ".secret-words"
 REQUIRED = {
     "de": ["Orientierung, kein Plan", "etwa acht Wochen", "ersetzt keine ärztliche Beratung",
            "kein Medizinprodukt", "Bald im App Store"],
@@ -53,7 +55,9 @@ class HomeTests(unittest.TestCase):
                 self.assertIsNone(re.search(FORBIDDEN[lang], text, re.I), re.search(FORBIDDEN[lang], text, re.I))
                 self.assertNotRegex(text, r"\bWHO\b")
 
+    @unittest.skipUnless(SECRETS_FILE.exists(), ".secret-words fehlt (liegt im privaten App-Repo)")
     def test_forecast_keeps_its_secrets(self):
+        SECRETS = read(SECRETS_FILE).strip()
         for lang, root in self.docs.items():
             text = visible_text(by_id(root, "s-forecast"))
             with self.subTest(lang=lang):
