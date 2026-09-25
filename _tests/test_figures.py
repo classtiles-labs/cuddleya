@@ -1,0 +1,60 @@
+import os
+import subprocess
+import sys
+import unittest
+
+from sitehelp import ANIMALS, ROOT, read
+
+FIG = ROOT / "assets" / "figures"
+SOURCE = ROOT.parent / "BabyApp" / "Design"
+HEAD = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 150">'
+
+
+class FigureTests(unittest.TestCase):
+    def test_every_companion_has_awake_and_asleep(self):
+        expected = {f"{a}-{s}.svg" for a, _, _ in ANIMALS for s in ("awake", "asleep")}
+        expected.add("bear-asleep-night.svg")
+        self.assertEqual({p.name for p in FIG.glob("*.svg")}, expected)
+
+    def test_figures_are_clean_copies(self):
+        for path in FIG.glob("*.svg"):
+            with self.subTest(path.name):
+                text = read(path)
+                self.assertTrue(text.startswith(HEAD))
+                self.assertNotIn('<rect width="240" height="150"', text)
+                self.assertNotIn("<!--", text)
+
+    def test_night_bear_uses_the_dark_cloud(self):
+        text = read(FIG / "bear-asleep-night.svg")
+        self.assertIn("#282a35", text)
+        self.assertIn("#20222c", text)
+        self.assertNotIn("#f4f1f6", text)
+
+    def test_copy_is_repeatable(self):
+        if not SOURCE.exists():
+            if os.environ.get("CUDDLEYA_ALLOW_SKIP"):
+                self.skipTest("BabyApp/Design fehlt")
+            self.fail("BabyApp/Design fehlt neben diesem Repo")
+        before = {p.name: read(p) for p in FIG.glob("*.svg")}
+        subprocess.run([sys.executable, str(ROOT / "_tools" / "copy_figures.py")], check=True, capture_output=True)
+        self.assertEqual({p.name: read(p) for p in FIG.glob("*.svg")}, before)
+
+
+class CopyToolTests(unittest.TestCase):
+    def test_clean_refuses_svg_without_background(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("copy_figures", ROOT / "_tools" / "copy_figures.py")
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        with self.assertRaises(ValueError):
+            mod.clean('<svg viewBox="0 0 240 150"><circle r="1"/></svg>')
+
+    def test_clean_refuses_svg_without_svg_tag(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("copy_figures", ROOT / "_tools" / "copy_figures.py")
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        with self.assertRaises(ValueError):
+            mod.clean('<rect width="240" height="150" fill="#fff"/>')
+        with self.assertRaises(ValueError):
+            mod.night('<svg viewBox="0 0 240 150"></svg>')

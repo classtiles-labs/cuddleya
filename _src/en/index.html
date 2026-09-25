@@ -1,20 +1,238 @@
-<section class="hero">
-  <img src="/assets/icon.png" alt="Cuddleya app icon" width="128" height="128">
-  <div>
-    <h1>Cuddleya</h1>
-    <p class="lead">A calm baby log for iPhone and Apple Watch. Record sleep, feeds and diapers with a single tap, one-handed, even at night.</p>
-    <span class="soon">Coming to the App Store · currently in testing</span>
+<div class="sky" aria-hidden="true"><div class="l-day"></div><div class="l-glow"></div><div class="l-night"></div></div>
+
+<section class="st st-night tone-night" id="s-night" aria-labelledby="h-night">
+  <div class="stars" aria-hidden="true"></div>
+  <div class="wrap split hero">
+    <div>
+      <p class="eyebrow">Baby log for iPhone and Apple&nbsp;Watch</p>
+      <h1 id="h-night">Log it calmly. Even at 3&nbsp;a.m.</h1>
+      <p class="sub">Record sleep, feeds and diapers with one tap, see the day at a glance, and keep the log together with your partner.</p>
+      <p class="cta">Coming soon to the App Store</p>
+    </div>
+    <div class="hero-fig" aria-hidden="true"><img src="/assets/figures/bear-asleep-night.svg" alt="" width="480" height="300"></div>
   </div>
 </section>
 
-<div class="grid">
-  <div class="card"><h3>The day at a glance</h3><p>A day axis shows sleep, feeds and diapers in context, together with sunrise and sunset.</p></div>
-  <div class="card"><h3>Keep it together</h3><p>Invite your partner. You both see the same log, each on your own devices.</p></div>
-  <div class="card"><h3>Apple Watch</h3><p>Start and stop sleep or breastfeeding, or log a diaper, without reaching for your iPhone.</p></div>
-  <div class="card"><h3>Growth and report</h3><p>Track height and weight and create a PDF report, for example for the next doctor's visit.</p></div>
+<div class="st st-dawn scene" id="s-dawn" data-sky="dawn" aria-hidden="true">
+  <div class="scene-stick">
+    <div class="sunball"></div>
+    <div class="swap"><img class="asleep" src="/assets/figures/bear-asleep.svg" alt="" width="480" height="300"><img class="awake" src="/assets/figures/bear-awake.svg" alt="" width="480" height="300"></div>
+  </div>
 </div>
 
-<h2>Your data stays with you</h2>
-<p>Cuddleya has no user account, no server of its own, no ads and no tracking. Your entries live on your device and in your own iCloud; syncing can be turned off. We see none of it. Read more in the <a href="/en/privacy.html">privacy policy</a>.</p>
+<section class="st st-log tone-day" id="s-log" aria-labelledby="h-log">
+  <div class="wrap">
+    <p class="eyebrow">Logging</p>
+    <h2 id="h-log" class="reveal">One tap. Even one-handed.</h2>
+    <p class="sub reveal" style="--d:.1s">Start a sleep or add it later, record a feed or a diaper. Press and hold the plus button for shortcuts.</p>
+    <div class="kinds">
+      <div class="kind reveal" style="--c:var(--kind-sleep);--d:.1s"><h3>Sleep</h3><p>With a timer or afterwards, with details like place, sleep aid, pacifier and how your child slept, if you like.</p></div>
+      <div class="kind reveal" style="--c:var(--kind-breast);--d:.2s"><h3>Feeds</h3><p>Nursing by side and duration, bottles in ml or fl oz, solids and pumping.</p></div>
+      <div class="kind reveal" style="--c:var(--kind-diaper);--d:.3s"><h3>Diapers</h3><p>Wet, stool or both, with color and consistency if you want.</p></div>
+    </div>
+    <p class="more-kinds reveal">Plus medication, measurements, notes, appointments and markers such as teething, vaccination or travel.</p>
+  </div>
+</section>
 
-<p class="note">Cuddleya is a diary, not a medical device. Hints such as the expected next bedtime are guidance drawn from your own entries and do not replace medical advice.</p>
+<section class="st tone-day" id="s-day" aria-labelledby="h-day">
+  <div class="wrap">
+    <p class="eyebrow">Today</p>
+    <h2 id="h-day" class="reveal">Your day at a glance.</h2>
+    <p class="sub reveal" style="--d:.1s">The day axis shows sleep, feeds and diapers together. Nights sit where it is dark outside: from sunset to sunrise if you allow your approximate location, otherwise from 7&nbsp;p.m. to 7&nbsp;a.m.</p>
+    <figure class="example axis">
+      <figcaption class="example-tag">Example</figcaption>
+      <div class="axis-view">
+        <svg viewBox="0 0 960 210" role="img" aria-label="Example of a day axis: night sleep until 6:40 AM, naps from 9:15 to 10:25 AM and from 12:40 to 1:50 PM, now 2:30 PM, next sleep window likely between 4:20 and 4:50 PM.">
+          <defs>
+            <linearGradient id="ax-night" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--navy);stop-opacity:.34"/><stop offset="1" style="stop-color:var(--navy);stop-opacity:.08"/></linearGradient>
+            <linearGradient id="ax-glow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--rose);stop-opacity:.45"/><stop offset="1" style="stop-color:var(--rose);stop-opacity:0"/></linearGradient>
+          </defs>
+          <rect x="0" y="0" width="960" height="55" fill="url(#ax-glow)"/>
+          <path class="ax-hill" d="M0 110V8H423C447 8 447 110 471 110Z"/>
+          <path class="ax-hill" d="M877 110C901 110 901 8 925 8H960V110Z"/>
+          <text class="ax-label" x="14" y="30">Night</text>
+          <text class="ax-label" x="640" y="30">Day</text>
+          <path class="ax-sun" d="M429 99a7 7 0 0 1 14 0M425 99h22"/><text class="ax-label" x="451" y="103">7:05 AM</text>
+          <path class="ax-sun" d="M838 99a7 7 0 0 1 14 0M834 99h22"/><text class="ax-label" x="830" y="103" text-anchor="end">7:38 PM</text>
+          <line class="ax-base" x1="0" y1="180.5" x2="960" y2="180.5"/>
+          <path class="ax-tick" d="M20 181v5M60 181v5M100 181v5M140 181v5M180 181v5M220 181v5M260 181v5M300 181v5M340 181v5M380 181v5M420 181v5M460 181v5M500 181v5M540 181v5M580 181v5M620 181v5M660 181v5M700 181v5M740 181v5M780 181v5M820 181v5M860 181v5M900 181v5M940 181v5"/>
+          <g class="ax-label" text-anchor="middle"><text x="20" y="204">9 PM</text><text x="140" y="204">12 AM</text><text x="260" y="204">3 AM</text><text x="380" y="204">6 AM</text><text x="500" y="204">9 AM</text><text x="620" y="204">12 PM</text><text x="740" y="204">3 PM</text><text x="860" y="204">6 PM</text></g>
+          <path class="ax-sleep" style="--d:.2s" d="M0 180V128H398.7Q406.7 128 406.7 136V178Q406.7 180 404.7 180Z"/>
+          <path class="ax-sleep" style="--d:.5s" d="M512 180Q510 180 510 178V136Q510 128 518 128H548.7Q556.7 128 556.7 136V178Q556.7 180 554.7 180Z"/>
+          <path class="ax-sleep" style="--d:.8s" d="M648.7 180Q646.7 180 646.7 178V136Q646.7 128 654.7 128H685.3Q693.3 128 693.3 136V178Q693.3 180 691.3 180Z"/>
+          <path class="ax-win" d="M795.3 180Q793.3 180 793.3 178V136Q793.3 128 801.3 128H805.3Q813.3 128 813.3 136V178Q813.3 180 811.3 180Z"/>
+          <circle class="ax-dot dot-breast" style="--d:1.1s" cx="416" cy="180" r="5"/>
+          <circle class="ax-dot dot-diaper" style="--d:1.2s" cx="440" cy="180" r="5"/>
+          <circle class="ax-dot dot-bottle" style="--d:1.3s" cx="566.7" cy="180" r="5"/>
+          <circle class="ax-dot dot-diaper" style="--d:1.4s" cx="580" cy="180" r="5"/>
+          <circle class="ax-dot dot-solids" style="--d:1.5s" cx="633.3" cy="180" r="5"/>
+          <circle class="ax-dot dot-breast" style="--d:1.6s" cx="703.3" cy="180" r="5"/>
+          <g class="ax-now-g"><line class="ax-now" x1="720" y1="112" x2="720" y2="186"/><circle class="ax-now-dot" cx="720" cy="186" r="5"/><text class="ax-label ax-now-label" x="720" y="106" text-anchor="middle">Now</text></g>
+        </svg>
+      </div>
+      <ul class="legend">
+        <li style="--c:var(--kind-sleep)">Sleep</li><li class="lg-awake">Awake</li><li class="lg-win">Forecast</li>
+        <li style="--c:var(--kind-breast)">Nursing</li><li style="--c:var(--kind-bottle)">Bottle</li><li style="--c:var(--kind-solids)">Solids</li><li style="--c:var(--kind-diaper)">Diaper</li>
+      </ul>
+      <dl class="stats">
+        <div><dt>Sleep, 24 h</dt><dd>12 h 30 min</dd></div>
+        <div><dt>Naps, 24 h</dt><dd>2</dd></div>
+        <div><dt>longest awake</dt><dd>2 h 35 min</dd></div>
+      </dl>
+    </figure>
+    <p class="reveal after-axis">Below the axis you get numbers, not verdicts.</p>
+  </div>
+</section>
+
+<section class="st tone-day" id="s-forecast" aria-labelledby="h-forecast">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Forecast</p>
+      <h2 id="h-forecast" class="reveal">How the forecast works.</h2>
+      <ol class="steps">
+        <li class="reveal" style="--d:.1s"><div><b>At first: age.</b>While there are only a few entries, Cuddleya goes by what is typical for your child’s age.</div></li>
+        <li class="reveal" style="--d:.2s"><div><b>Then: your child.</b>With every sleep you log, it follows your own rhythm more closely. The app shows you how many sleeps it is based on.</div></li>
+        <li class="reveal" style="--d:.3s"><div><b>Always: a window, not a fixed time.</b>You see a likely time and a range around it. If the rhythm gets less settled, the app says so. If there will be no more naps today, one tap is enough.</div></li>
+      </ol>
+      <p class="guidance reveal"><b>Guidance, not a plan.</b> Every day is different. The forecast begins at about eight weeks and does not replace medical advice.</p>
+    </div>
+    <figure class="example fc reveal">
+      <figcaption class="example-tag">Example</figcaption>
+      <p class="fc-title">Next nap</p>
+      <p class="fc-point">Falling asleep likely around 4:35 PM</p>
+      <p class="fc-band">usually between 4:20 PM and 4:50 PM</p>
+      <div class="fc-rows" role="img" aria-label="The range often narrows with more entries and can widen again.">
+        <div class="fc-row" style="--d:.3s"><span>At first</span><span class="fc-track"><i class="fc-win" style="--a:48.7%;--w:22%"></i></span></div>
+        <div class="fc-row" style="--d:.9s"><span>After a while</span><span class="fc-track"><i class="fc-win" style="--a:54.2%;--w:11%"></i></span></div>
+        <div class="fc-row" style="--d:1.5s"><span>With many entries</span><span class="fc-track"><i class="fc-win" style="--a:52.7%;--w:14%"></i></span></div>
+      </div>
+      <p class="fc-note">With more entries the range often gets narrower. It can also widen again.</p>
+      <p class="fc-foot">Guidance from Mia’s logged sleeps</p>
+    </figure>
+  </div>
+</section>
+
+<section class="st tone-day" id="s-devices" aria-labelledby="h-devices">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">iPhone and Apple Watch</p>
+      <h2 id="h-devices" class="reveal">On your wrist when your hands are full.</h2>
+      <ul class="ticks">
+        <li class="reveal" style="--d:.1s">On Apple Watch, start and stop sleep and nursing, switch sides or log a diaper.</li>
+        <li class="reveal" style="--d:.2s">A running timer shows on the Lock Screen and in the Dynamic Island, with a Stop button.</li>
+        <li class="reveal" style="--d:.3s">If you like, a notification reminds you about 30 minutes before the next likely sleep, not between 8&nbsp;p.m. and 7&nbsp;a.m.</li>
+      </ul>
+    </div>
+    <figure class="example devices-demo">
+      <figcaption class="example-tag">Example</figcaption>
+      <div class="island reveal" role="img" aria-label="Live Activity: Mia has been sleeping for one hour and twelve minutes, with a Stop button.">
+        <span class="i-moon"></span><span class="i-text"><small>Sleeping since 1:18 PM</small><b data-timer="4325">1:12:05</b></span><span class="i-stop">Stop</span>
+      </div>
+      <div class="watch reveal" style="--d:.3s" role="img" aria-label="Apple Watch: nursing for eight minutes, buttons Switch side and Stop.">
+        <div class="watch-screen"><small class="w-title">Nursing</small><b class="w-time" data-timer="494">8:14</b><span class="w-btn">Switch side</span><span class="w-btn">Stop</span></div>
+      </div>
+      <div class="notif reveal" style="--d:.6s">
+        <img src="/assets/icon-96.png" alt="" width="38" height="38" loading="lazy"><div><b>Next sleep</b><p>Mia will likely be ready to sleep in about 30 minutes. Watch for the first signs of tiredness, like a yawn, eye rubbing or a faraway look …</p></div>
+      </div>
+    </figure>
+  </div>
+  <div class="wrap">
+    <div class="shots">
+      <figure class="example shot reveal"><figcaption class="example-tag">Example</figcaption><img src="/assets/shots/en-today.jpg" alt="Screenshot of the Today screen in the evening: Mia has been sleeping for four minutes, the bear sleeps under the moon, below it the day axis with sunrise and sunset." width="600" height="1304" loading="lazy"><p class="cap">Today</p></figure>
+      <figure class="example shot reveal" style="--d:.1s"><figcaption class="example-tag">Example</figcaption><img src="/assets/shots/en-entry.jpg" alt="Screenshot of the Add sheet with sleep, diaper, nursing, bottle, solids, pumping, medication, measurement and note." width="600" height="1304" loading="lazy"><p class="cap">Logging</p></figure>
+      <figure class="example shot reveal" style="--d:.2s"><figcaption class="example-tag">Example</figcaption><img src="/assets/shots/en-figures.jpg" alt="Screenshot of the figure picker with bear, bunny, fox, cat and the other sleepy figures." width="600" height="1304" loading="lazy"><p class="cap">Choose a figure</p></figure>
+    </div>
+  </div>
+</section>
+
+<section class="st tone-day" id="s-together" aria-labelledby="h-together">
+  <div class="wrap split flip">
+    <div>
+      <p class="eyebrow">Together</p>
+      <h2 id="h-together" class="reveal">Keep the log together.</h2>
+      <p class="sub reveal" style="--d:.1s">Share your child with your partner. You both see the same log on your own devices, on Apple Watch too. Entries made by the other person show their name; you can turn this off.</p>
+      <p class="reveal" style="--d:.2s">Invite through Apple’s iCloud sharing. Someone standing next to you can also open the invitation with a QR code. Sharing needs iCloud. Without iCloud it works too: on this iPhone only, without sharing.</p>
+    </div>
+    <figure class="example phones">
+      <figcaption class="example-tag">Example</figcaption>
+      <div class="phone" role="img" aria-label="Alex’s iPhone with a new entry: bottle, 120 milliliters. Sam’s entries carry Sam’s name.">
+        <div class="row new" style="--c:var(--kind-bottle);--d:.3s"><i></i><span>Bottle · 120 ml<small>2:10 PM</small></span></div>
+        <div class="row" style="--c:var(--kind-diaper)"><i></i><span>Diaper · wet<small>1:55 PM · Sam</small></span></div>
+        <div class="row" style="--c:var(--kind-sleep)"><i></i><span>Sleep · 1 h 10 min<small>12:40 PM · Sam</small></span></div>
+      </div>
+      <div class="phone" role="img" aria-label="Sam’s iPhone: the same entry appears here too, with Alex’s name.">
+        <div class="row new" style="--c:var(--kind-bottle);--d:1.3s"><i></i><span>Bottle · 120 ml<small>2:10 PM · Alex</small></span></div>
+        <div class="row" style="--c:var(--kind-diaper)"><i></i><span>Diaper · wet<small>1:55 PM</small></span></div>
+        <div class="row" style="--c:var(--kind-sleep)"><i></i><span>Sleep · 1 h 10 min<small>12:40 PM</small></span></div>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section class="st tone-day" id="s-figures" aria-labelledby="h-figures">
+  <div class="wrap">
+    <p class="eyebrow">Figures</p>
+    <h2 id="h-figures" class="reveal">A figure for every child.</h2>
+    <p class="sub reveal" style="--d:.1s">Fifteen sleepy figures, drawn for Cuddleya. They sleep when your child sleeps.</p>
+    <p class="hint js-only" id="figs-hint">Tap a figure: it falls asleep or wakes up.<span class="vh"> Pressed means: asleep.</span></p>
+    <ul class="figs">
+      <li><button class="fig-btn" type="button" aria-pressed="false" aria-describedby="figs-hint"><span class="fig-art"><img class="awake" src="/assets/figures/bear-awake.svg" alt="" width="240" height="150" loading="lazy"><img class="asleep" src="/assets/figures/bear-asleep.svg" alt="" width="240" height="150" loading="lazy"></span><span class="fig-name">Bear</span></button></li>
+      <li><button class="fig-btn" type="button" aria-pressed="false" aria-describedby="figs-hint"><span class="fig-art"><img class="awake" src="/assets/figures/bunny-awake.svg" alt="" width="240" height="150" loading="lazy"><img class="asleep" src="/assets/figures/bunny-asleep.svg" alt="" width="240" height="150" loading="lazy"></span><span class="fig-name">Bunny</span></button></li>
+      <li><button class="fig-btn" type="button" aria-pressed="false" aria-describedby="figs-hint"><span class="fig-art"><img class="awake" src="/assets/figures/fox-awake.svg" alt="" width="240" height="150" loading="lazy"><img class="asleep" src="/assets/figures/fox-asleep.svg" alt="" width="240" height="150" loading="lazy"></span><span class="fig-name">Fox</span></button></li>
+      <li><button class="fig-btn" type="button" aria-pressed="false" aria-describedby="figs-hint"><span class="fig-art"><img class="awake" src="/assets/figures/cat-awake.svg" alt="" width="240" height="150" loading="lazy"><img class="asleep" src="/assets/figures/cat-asleep.svg" alt="" width="240" height="150" loading="lazy"></span><span class="fig-name">Cat</span></button></li>
+      <li><button class="fig-btn" type="button" aria-pressed="false" aria-describedby="figs-hint"><span class="fig-art"><img class="awake" src="/assets/figures/puppy-awake.svg" alt="" width="240" height="150" loading="lazy"><img class="asleep" src="/assets/figures/puppy-asleep.svg" alt="" width="240" height="150" loading="lazy"></span><span class="fig-name">Puppy</span></button></li>
+      <li><button class="fig-btn" type="button" aria-pressed="false" aria-describedby="figs-hint"><span class="fig-art"><img class="awake" src="/assets/figures/piglet-awake.svg" alt="" width="240" height="150" loading="lazy"><img class="asleep" src="/assets/figures/piglet-asleep.svg" alt="" width="240" height="150" loading="lazy"></span><span class="fig-name">Piglet</span></button></li>
+      <li><button class="fig-btn" type="button" aria-pressed="false" aria-describedby="figs-hint"><span class="fig-art"><img class="awake" src="/assets/figures/mouse-awake.svg" alt="" width="240" height="150" loading="lazy"><img class="asleep" src="/assets/figures/mouse-asleep.svg" alt="" width="240" height="150" loading="lazy"></span><span class="fig-name">Mouse</span></button></li>
+      <li><button class="fig-btn" type="button" aria-pressed="false" aria-describedby="figs-hint"><span class="fig-art"><img class="awake" src="/assets/figures/lamb-awake.svg" alt="" width="240" height="150" loading="lazy"><img class="asleep" src="/assets/figures/lamb-asleep.svg" alt="" width="240" height="150" loading="lazy"></span><span class="fig-name">Lamb</span></button></li>
+      <li><button class="fig-btn" type="button" aria-pressed="false" aria-describedby="figs-hint"><span class="fig-art"><img class="awake" src="/assets/figures/panda-awake.svg" alt="" width="240" height="150" loading="lazy"><img class="asleep" src="/assets/figures/panda-asleep.svg" alt="" width="240" height="150" loading="lazy"></span><span class="fig-name">Panda</span></button></li>
+      <li><button class="fig-btn" type="button" aria-pressed="false" aria-describedby="figs-hint"><span class="fig-art"><img class="awake" src="/assets/figures/koala-awake.svg" alt="" width="240" height="150" loading="lazy"><img class="asleep" src="/assets/figures/koala-asleep.svg" alt="" width="240" height="150" loading="lazy"></span><span class="fig-name">Koala</span></button></li>
+      <li><button class="fig-btn" type="button" aria-pressed="false" aria-describedby="figs-hint"><span class="fig-art"><img class="awake" src="/assets/figures/raccoon-awake.svg" alt="" width="240" height="150" loading="lazy"><img class="asleep" src="/assets/figures/raccoon-asleep.svg" alt="" width="240" height="150" loading="lazy"></span><span class="fig-name">Raccoon</span></button></li>
+      <li><button class="fig-btn" type="button" aria-pressed="false" aria-describedby="figs-hint"><span class="fig-art"><img class="awake" src="/assets/figures/hedgehog-awake.svg" alt="" width="240" height="150" loading="lazy"><img class="asleep" src="/assets/figures/hedgehog-asleep.svg" alt="" width="240" height="150" loading="lazy"></span><span class="fig-name">Hedgehog</span></button></li>
+      <li><button class="fig-btn" type="button" aria-pressed="false" aria-describedby="figs-hint"><span class="fig-art"><img class="awake" src="/assets/figures/lion-awake.svg" alt="" width="240" height="150" loading="lazy"><img class="asleep" src="/assets/figures/lion-asleep.svg" alt="" width="240" height="150" loading="lazy"></span><span class="fig-name">Lion</span></button></li>
+      <li><button class="fig-btn" type="button" aria-pressed="false" aria-describedby="figs-hint"><span class="fig-art"><img class="awake" src="/assets/figures/elephant-awake.svg" alt="" width="240" height="150" loading="lazy"><img class="asleep" src="/assets/figures/elephant-asleep.svg" alt="" width="240" height="150" loading="lazy"></span><span class="fig-name">Elephant</span></button></li>
+      <li><button class="fig-btn" type="button" aria-pressed="false" aria-describedby="figs-hint"><span class="fig-art"><img class="awake" src="/assets/figures/dino-awake.svg" alt="" width="240" height="150" loading="lazy"><img class="asleep" src="/assets/figures/dino-asleep.svg" alt="" width="240" height="150" loading="lazy"></span><span class="fig-name">Dino</span></button></li>
+    </ul>
+    <div class="more">
+      <div class="reveal"><h3>PDF report</h3><p>A report as a PDF, for example for the next doctor’s appointment, with every single entry if you like.</p></div>
+      <div class="reveal" style="--d:.1s"><h3>Growth</h3><p>Record weight, length and head circumference and see them as percentiles.</p></div>
+      <div class="reveal" style="--d:.2s"><h3>Backups</h3><p>Daily on your iPhone, optionally also in iCloud Drive. With a password, copies that leave your iPhone are encrypted.</p></div>
+      <div class="reveal"><h3>History</h3><p>Every entry, filterable by kind, with note search and a trash for mistakes.</p></div>
+      <div class="reveal" style="--d:.1s"><h3>Daily quote</h3><p>A short saying on the Today screen each day. If you’d rather not, hide it for the day or turn it off in Settings.</p></div>
+      <div class="reveal" style="--d:.2s"><h3>First steps</h3><p>A short tour on first launch that you can open again at any time.</p></div>
+      <div class="reveal"><h3>Milestone card</h3><p>At one, two and three weeks and then every month until the first birthday, a card with a photo, size and a few lines about your child, to share or print.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="st st-dusk scene" id="s-dusk" data-sky="dusk" aria-hidden="true">
+  <div class="scene-stick">
+    <div class="sunball"></div>
+    <div class="swap"><img class="awake" src="/assets/figures/bear-awake.svg" alt="" width="480" height="300" loading="lazy"><img class="asleep" src="/assets/figures/bear-asleep.svg" alt="" width="480" height="300" loading="lazy"></div>
+  </div>
+</div>
+
+<section class="st st-data tone-night" id="s-data" aria-labelledby="h-data">
+  <div class="stars" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="eyebrow">Privacy</p>
+    <h2 id="h-data" class="reveal">Your data is yours.</h2>
+    <p class="sub reveal" style="--d:.1s">Your entries live on your iPhone and, if you use iCloud, in your own iCloud or, for a shared child, in the iCloud of the person who shared it. We can’t access them.</p>
+    <ul class="facts">
+      <li class="reveal">No account<span>No sign-up, no email address.</span></li>
+      <li class="reveal" style="--d:.1s">No server of ours<span>There is no Cuddleya server collecting entries.</span></li>
+      <li class="reveal" style="--d:.2s">No ads, no analytics<span>No tracking in the app or on this website.</span></li>
+      <li class="reveal" style="--d:.3s">iCloud is optional<span>You can turn sync off at any time.</span></li>
+    </ul>
+    <p class="reveal"><a href="/en/privacy.html">Read the privacy policy</a></p>
+  </div>
+</section>
+
+<section class="st st-end tone-night" id="s-end" aria-labelledby="h-end">
+  <div class="stars" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="end-fig" aria-hidden="true"><img src="/assets/figures/bear-asleep-night.svg" alt="" width="480" height="300" loading="lazy"></div>
+    <h2 id="h-end">Good night.</h2>
+    <p class="cta">Coming soon to the App Store</p>
+    <p class="disclaimer">Cuddleya is a log, not a medical device. Hints such as the likely next bedtime are guidance drawn from your own entries and do not replace medical advice.</p>
+  </div>
+</section>
