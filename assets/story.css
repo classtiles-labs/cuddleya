@@ -197,6 +197,13 @@
 .disclaimer{max-width:40em;margin:28px auto 0;font-size:.95rem}
 .home footer.site{border-top:1px solid rgba(255,255,255,.08)}
 
+/* 5b Screenshots im eigenen Rahmen */
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,3vw,32px);margin-top:64px}
+@media (max-width:820px){.shots{grid-template-columns:repeat(3,68vw);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}}
+.shot{scroll-snap-align:center}
+.shot img{display:block;width:100%;height:auto;border:8px solid #141833;border-radius:40px;background:#141833}
+.shot .cap{margin:10px 0 0;text-align:center;font-size:.92rem;color:var(--ink-2)}
+
 @media (prefers-reduced-motion: reduce){
   .stars::before,.stars::after,.hero-fig img{animation:none}
   .fig-art img,.fig-btn{transition:none}
