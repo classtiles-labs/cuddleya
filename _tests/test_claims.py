@@ -5,18 +5,20 @@ from sitehelp import build, page, parse, read, visible_text
 
 GONE = {
     "de": ["Einschlafdauer", "über das Teilen-Blatt oder einen QR-Code", "bei jedem Eintrag, wer ihn gemacht hat",
-           "Alle Einträge mit Suche und Filtern", "Wer nicht teilen will", "Schläft seit 1:12:05"],
+           "Alle Einträge mit Suche und Filtern", "Wer nicht teilen will", "Schläft seit 1:12:05",
+           "in der es meist so weit ist", "„normal“", "Deine Daten bleiben bei dir", "nicht allein", "letzten 42"],
     "en": ["time to fall asleep", "via the share sheet or a QR code", "each entry shows who added it",
            "Every entry with search and filters", "If you don’t want to share", "likely bedtime",
-           "Sleeping since 1:12:05"],
+           "Sleeping since 1:12:05", "in which it usually happens", "“normal”", "stays with you", "not alone",
+           "One hand.", "colour", "millilitres", "last 42"],
 }
 THERE = {
     "de": ["jeden Monat bis zum ersten Geburtstag", "Suche in den Notizen", "Apples iCloud-Freigabe",
            "Bei Einträgen der anderen Person steht ihr Name", "Ohne iCloud geht es auch",
-           "Orientierung aus Mias letzten 42 Schlafphasen", "Schläfchen, 24 Std.", "Spruch des Tages"],
+           "Orientierung aus Mias eingetragenen Schlafphasen", "Schläfchen, 24 Std.", "Spruch des Tages"],
     "en": ["every month until the first birthday", "note search", "Apple’s iCloud sharing",
            "Entries made by the other person show their name", "Without iCloud it works too",
-           "Guidance from Mia’s last 42 sleeps", "Naps, 24 h", "Daily quote"],
+           "Guidance from Mia’s logged sleeps", "Naps, 24 h", "Daily quote"],
 }
 
 
