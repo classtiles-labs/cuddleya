@@ -63,8 +63,8 @@
 .motion #s-dawn,.motion #s-dusk{--q:clamp(0,(var(--p,0) - .45) * 6,1)}
 .motion #s-dawn .awake,.motion #s-dusk .asleep{opacity:var(--q)}
 .motion #s-dawn .asleep,.motion #s-dusk .awake{opacity:calc(1 - var(--q))}
-.motion #s-dawn .sunball{transform:translate(-50%,calc(-50% + (.6 - var(--p,0)) * 60vh))}
-.motion #s-dusk .sunball{transform:translate(-50%,calc(-50% + (var(--p,0) - .4) * 60vh))}
+.motion #s-dawn .sunball{opacity:clamp(0,(var(--p,0) - .1) * 3,1);transform:translate(-50%,calc(-50% + (.6 - var(--p,0)) * 90vh))}
+.motion #s-dusk .sunball{opacity:clamp(0,(.9 - var(--p,0)) * 3,1);transform:translate(-50%,calc(-50% + (var(--p,0) - .4) * 90vh))}
 
 /* Einblenden beim Hereinscrollen */
 .motion .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease var(--d,0s),transform .9s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
