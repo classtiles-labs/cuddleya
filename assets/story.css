@@ -16,7 +16,7 @@
 
 /* Himmel (nur mit Skript) */
 .sky{display:none}
-.motion .sky{display:block;position:fixed;inset:0 0 auto;height:100lvh;z-index:-1;pointer-events:none}
+.motion .sky{display:block;position:fixed;inset:0 0 auto;height:100vh;height:100lvh;z-index:-1;pointer-events:none}
 .sky>div{position:absolute;inset:0}
 .l-day{background:linear-gradient(var(--rose-soft),var(--day) 60%)}
 .l-glow{background:linear-gradient(var(--dusk),var(--rose) 60%,var(--rose-soft));opacity:var(--glow,0)}
@@ -44,7 +44,7 @@
 
 /* 1 Nacht */
 .st-night{padding:0}
-.hero{min-height:100svh;align-content:center;padding-top:96px;padding-bottom:48px}
+.hero{min-height:100vh;min-height:100svh;align-content:center;padding-top:96px;padding-bottom:48px}
 .hero-fig img{display:block;width:100%;height:auto;transform-origin:50% 80%;animation:breathe 5s ease-in-out infinite}
 @keyframes breathe{50%{transform:scale(1.02)}}
 @media (max-width:640px){.hero{padding-top:150px}}
@@ -59,8 +59,8 @@
 .swap img{position:absolute;inset:0;width:100%;height:100%}
 #s-dawn .asleep{opacity:0}
 #s-dusk .awake{opacity:0}
-.motion .scene{display:block;height:220svh}
-.motion .scene-stick{position:sticky;top:0;height:100svh;min-height:0}
+.motion .scene{display:block;height:220vh;height:220svh}
+.motion .scene-stick{position:sticky;top:0;height:100vh;height:100svh;min-height:0}
 .motion #s-dawn,.motion #s-dusk{--q:clamp(0,(var(--p,0) - .45) * 6,1)}
 .motion #s-dawn .awake,.motion #s-dusk .asleep{opacity:var(--q)}
 .motion #s-dawn .asleep,.motion #s-dusk .awake{opacity:calc(1 - var(--q))}

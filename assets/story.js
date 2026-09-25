@@ -3,7 +3,6 @@
 (() => {
   const doc = document.documentElement;
   doc.classList.add("js");
-  doc.dataset.story = "1";
   const still = matchMedia("(prefers-reduced-motion: reduce)");
   const clamp = (x) => Math.min(1, Math.max(0, x));
   const bump = (p) => (p > 0 && p < 1 ? Math.sin(Math.PI * p) : 0);
@@ -22,10 +21,13 @@
     const m = Math.floor(s / 60) % 60;
     return (h ? h + ":" + pad(m) : m) + ":" + pad(s % 60);
   };
+  // Aus der Uhrzeit gerechnet, damit ein pausierter Tab nicht nachhinkt; im Hintergrund wird nicht geschrieben.
   const tick = (root) => {
     for (const el of root.querySelectorAll("[data-timer]")) {
-      let s = Number(el.dataset.timer);
-      setInterval(() => { el.textContent = clock(++s); }, 1000);
+      const start = Date.now() - Number(el.dataset.timer) * 1000;
+      setInterval(() => {
+        if (!document.hidden) el.textContent = clock(Math.floor((Date.now() - start) / 1000));
+      }, 1000);
     }
   };
 
@@ -48,9 +50,27 @@
     el.style.setProperty(name, value);
   };
 
+  // Geht etwas schief, zeigt die Seite ihre Standbilder, statt Inhalte unsichtbar zu lassen.
+  let on = false;
+  const giveUp = (err) => {
+    on = false;
+    doc.classList.remove("motion");
+    removeEventListener("scroll", request);
+    removeEventListener("resize", request);
+    for (const s of stations) s.classList.add("is-in");
+    console.error("story.js", err);
+  };
+
   let queued = false;
   const paint = () => {
     queued = false;
+    try {
+      draw();
+    } catch (err) {
+      giveUp(err);
+    }
+  };
+  const draw = () => {
     const a = progress(dawn);
     const d = progress(dusk);
     setIfChanged(dawn, "--p", a.toFixed(3));
@@ -66,18 +86,17 @@
     }
   };
 
-  const seen = new IntersectionObserver((entries) => {
+  const seen = "IntersectionObserver" in window ? new IntersectionObserver((entries) => {
     for (const e of entries) {
       if (!e.isIntersecting) continue;
       e.target.classList.add("is-in");
       seen.unobserve(e.target);
       tick(e.target);
     }
-  }, { threshold: 0, rootMargin: "0px 0px -15% 0px" });
+  }, { threshold: 0, rootMargin: "0px 0px -15% 0px" }) : null;
 
-  let on = false;
   const setMotion = () => {
-    const want = !still.matches && Boolean(sky && dawn && dusk);
+    const want = !still.matches && Boolean(sky && dawn && dusk && seen);
     doc.classList.toggle("motion", want);
     if (want && !on) {
       addEventListener("scroll", request, { passive: true });
@@ -86,12 +105,18 @@
     } else if (!want && on) {
       removeEventListener("scroll", request);
       removeEventListener("resize", request);
-      seen.disconnect();
+      seen?.disconnect();
       for (const s of stations) s.classList.add("is-in");
     }
     on = want;
     if (want) paint();
   };
-  still.addEventListener("change", setMotion);
-  setMotion();
+  try {
+    if (still.addEventListener) still.addEventListener?.("change", setMotion);
+    else still.addListener?.(setMotion);
+    setMotion();
+    doc.dataset.story = "1";
+  } catch (err) {
+    giveUp(err);
+  }
 })();

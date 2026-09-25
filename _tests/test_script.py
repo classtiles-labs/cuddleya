@@ -38,8 +38,20 @@ class ScriptTests(unittest.TestCase):
         self.assertIn("threshold: 0", text)
         self.assertIn("rootMargin", text)
 
-    def test_announces_itself_to_the_early_fallback(self):
-        self.assertIn('doc.dataset.story = "1"', read(JS))
+    def test_announces_itself_only_after_setup_worked(self):
+        text = read(JS)
+        self.assertIn('doc.dataset.story = "1"', text)
+        self.assertGreater(text.index('doc.dataset.story = "1"'), text.rindex("setMotion();"))
+
+    def test_setup_failure_falls_back_to_still_images(self):
+        text = read(JS)
+        self.assertIn("catch (err)", text)
+        self.assertIn('doc.classList.remove("motion")', text)
+        self.assertIn('"IntersectionObserver" in window', text)
+        self.assertIn("still.addEventListener?.", text)
+
+    def test_timers_follow_the_clock(self):
+        self.assertIn("Date.now()", read(JS))
 
     def test_paint_skips_unchanged_values(self):
         self.assertIn("setIfChanged", read(JS))

@@ -1,3 +1,4 @@
+import os
 import subprocess
 import sys
 import unittest
@@ -29,8 +30,11 @@ class FigureTests(unittest.TestCase):
         self.assertIn("#20222c", text)
         self.assertNotIn("#f4f1f6", text)
 
-    @unittest.skipUnless(SOURCE.exists(), "BabyApp/Design fehlt")
     def test_copy_is_repeatable(self):
+        if not SOURCE.exists():
+            if os.environ.get("CUDDLEYA_ALLOW_SKIP"):
+                self.skipTest("BabyApp/Design fehlt")
+            self.fail("BabyApp/Design fehlt neben diesem Repo")
         before = {p.name: read(p) for p in FIG.glob("*.svg")}
         subprocess.run([sys.executable, str(ROOT / "_tools" / "copy_figures.py")], check=True, capture_output=True)
         self.assertEqual({p.name: read(p) for p in FIG.glob("*.svg")}, before)
@@ -44,3 +48,13 @@ class CopyToolTests(unittest.TestCase):
         spec.loader.exec_module(mod)
         with self.assertRaises(ValueError):
             mod.clean('<svg viewBox="0 0 240 150"><circle r="1"/></svg>')
+
+    def test_clean_refuses_svg_without_svg_tag(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("copy_figures", ROOT / "_tools" / "copy_figures.py")
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        with self.assertRaises(ValueError):
+            mod.clean('<rect width="240" height="150" fill="#fff"/>')
+        with self.assertRaises(ValueError):
+            mod.night('<svg viewBox="0 0 240 150"></svg>')

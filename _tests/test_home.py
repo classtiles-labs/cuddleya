@@ -1,3 +1,4 @@
+import os
 import re
 import unittest
 
@@ -55,8 +56,11 @@ class HomeTests(unittest.TestCase):
                 self.assertIsNone(re.search(FORBIDDEN[lang], text, re.I), re.search(FORBIDDEN[lang], text, re.I))
                 self.assertNotRegex(text, r"\bWHO\b")
 
-    @unittest.skipUnless(SECRETS_FILE.exists(), ".secret-words fehlt (liegt im privaten App-Repo)")
     def test_forecast_keeps_its_secrets(self):
+        if not SECRETS_FILE.exists():
+            if os.environ.get("CUDDLEYA_ALLOW_SKIP"):
+                self.skipTest(".secret-words fehlt")
+            self.fail(".secret-words fehlt: aus BabyApp docs/website/secret-words.txt kopieren")
         SECRETS = read(SECRETS_FILE).strip()
         for lang, root in self.docs.items():
             text = visible_text(by_id(root, "s-forecast"))
@@ -108,7 +112,8 @@ class HomeTests(unittest.TestCase):
                 self.assertLess(later, 110 * 1024)
 
     def test_hidden_states_need_motion(self):
-        hide = r"(?<![-\w])opacity:\s*0(?![.\d])|visibility:\s*hidden|display:\s*none"
+        hide = (r"(?<![-\w])opacity:\s*0(?![.\d])|visibility:\s*hidden|display:\s*none"
+                r"|scale[XY]?\(0\)|clip-path:\s*inset")
         allowed_display_none = (".sky", ".js-only")
         for name in ("site.css", "story.css"):
             css = re.sub(r"/\*.*?\*/", "", read(ROOT / "assets" / name), flags=re.S)
