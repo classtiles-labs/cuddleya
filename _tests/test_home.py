@@ -3,7 +3,7 @@ import unittest
 
 from sitehelp import ANIMALS, ROOT, build, by_id, local_target, page, parse, read, visible_text
 
-LANGS = ["de"]  # Task 5 ergänzt "en"
+LANGS = ["de", "en"]
 SECTIONS = ["s-night", "s-dawn", "s-log", "s-day", "s-forecast", "s-devices",
             "s-together", "s-figures", "s-dusk", "s-data", "s-end"]
 FORBIDDEN = {
