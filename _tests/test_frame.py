@@ -41,9 +41,31 @@ class FrameTests(unittest.TestCase):
             with self.subTest(page=str(path.relative_to(ROOT))):
                 self.assertIsNone(EXTERNAL.search(html))
                 for tag in re.findall(r"<script[^>]*>", html):
-                    self.assertEqual(tag, '<script src="/assets/story.js" defer>')
+                    self.assertIn(tag, ('<script src="/assets/story.js" defer>', "<script>"))
         for css in (ROOT / "assets").glob("*.css"):
             self.assertNotRegex(read(css), r"@import|url\(\s*['\"]?(?:https?:)?//")
+
+    def test_home_sets_motion_classes_before_first_paint(self):
+        for _, name, path in all_pages():
+            html = read(path)
+            early = html.find('<script>(d=>')
+            with self.subTest(page=str(path.relative_to(ROOT))):
+                if name == "index":
+                    self.assertGreater(early, 0)
+                    # Fällt auf Standbilder zurück, wenn story.js nie ankommt (sonst blieben Einblendungen unsichtbar)
+                    self.assertIn('d.dataset.story||d.classList.remove("motion")', html)
+                    self.assertLess(early, html.find('<link rel="stylesheet" href="/assets/site.css">'))
+                else:
+                    self.assertEqual(early, -1)
+
+    def test_titles_and_descriptions_are_escaped(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("build", ROOT / "_build.py")
+        build_mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(build_mod)
+        out = build_mod.render("de", "support", "support", 'A "B" & C', 'x "y" & z', "<p>body</p>")
+        self.assertIn("A &quot;B&quot; &amp; C — Cuddleya", out)
+        self.assertIn('content="x &quot;y&quot; &amp; z"', out)
 
     def test_local_references_exist(self):
         for _, _, path in all_pages():

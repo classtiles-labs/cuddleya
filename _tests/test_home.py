@@ -104,10 +104,24 @@ class HomeTests(unittest.TestCase):
                 self.assertLess(later, 110 * 1024)
 
     def test_hidden_states_need_motion(self):
-        css = re.sub(r"/\*.*?\*/", "", read(ROOT / "assets" / "story.css"), flags=re.S)
-        for selectors, body in re.findall(r"([^{}]+)\{([^{}]*)\}", css):
-            if re.search(r"opacity:\s*0(?![.\d])", body):
-                for sel in selectors.split(","):
-                    sel = sel.strip()
-                    with self.subTest(selector=sel):
-                        self.assertTrue(sel.startswith(".motion") or sel.startswith(STATIC_HIDDEN) or "@" in sel)
+        hide = r"(?<![-\w])opacity:\s*0(?![.\d])|visibility:\s*hidden|display:\s*none"
+        allowed_display_none = (".sky", ".js-only")
+        for name in ("site.css", "story.css"):
+            css = re.sub(r"/\*.*?\*/", "", read(ROOT / "assets" / name), flags=re.S)
+            for selectors, body in re.findall(r"([^{}]+)\{([^{}]*)\}", css):
+                if re.search(hide, body):
+                    for sel in selectors.split(","):
+                        sel = sel.strip()
+                        with self.subTest(file=name, selector=sel):
+                            ok = (sel.startswith(".motion") or sel.startswith(STATIC_HIDDEN)
+                                  or (re.search(r"display:\s*none", body) and sel in allowed_display_none))
+                            self.assertTrue(ok)
+        for lang, html in self.html.items():
+            with self.subTest(lang=lang, where="inline styles"):
+                self.assertNotRegex(html, r'style="[^"]*(?:(?<![-\w])opacity:\s*0(?![.\d])|visibility:\s*hidden|display:\s*none)')
+
+    def test_figure_buttons_are_described(self):
+        for lang, root in self.docs.items():
+            for b in (n for n in root.walk() if "fig-btn" in n.classes()):
+                with self.subTest(lang=lang):
+                    self.assertEqual(b.attrs.get("aria-describedby"), "figs-hint")

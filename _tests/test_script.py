@@ -27,6 +27,23 @@ class ScriptTests(unittest.TestCase):
             with self.subTest(piece=piece):
                 self.assertIn(piece, text)
 
+    def test_scene_progress_uses_the_sticky_height(self):
+        # innerHeight changes with the iOS toolbar; the sticky part is fixed in svh (review 25.9.)
+        text = read(JS)
+        self.assertIn("firstElementChild.offsetHeight", text)
+        self.assertNotIn("innerHeight", text)
+
+    def test_reveal_observer_says_what_it_does(self):
+        text = read(JS)
+        self.assertIn("threshold: 0", text)
+        self.assertIn("rootMargin", text)
+
+    def test_announces_itself_to_the_early_fallback(self):
+        self.assertIn('doc.dataset.story = "1"', read(JS))
+
+    def test_paint_skips_unchanged_values(self):
+        self.assertIn("setIfChanged", read(JS))
+
     def test_page_offers_every_hook(self):
         build()
         html = read(page("de", "index"))

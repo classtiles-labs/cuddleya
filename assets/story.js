@@ -3,6 +3,7 @@
 (() => {
   const doc = document.documentElement;
   doc.classList.add("js");
+  doc.dataset.story = "1";
   const still = matchMedia("(prefers-reduced-motion: reduce)");
   const clamp = (x) => Math.min(1, Math.max(0, x));
   const bump = (p) => (p > 0 && p < 1 ? Math.sin(Math.PI * p) : 0);
@@ -33,10 +34,18 @@
   const dusk = document.querySelector('[data-sky="dusk"]');
   const stations = document.querySelectorAll(".st");
 
-  // 0, solange die Szene unter dem oberen Rand liegt, 1, wenn sie ganz durchgescrollt ist.
+  // 0, solange die Szene unter dem oberen Rand liegt, 1, wenn ihr klebender Teil losgelassen wird.
+  // Gemessen am klebenden Teil (fest in svh), nicht an der Fensterhöhe: die springt mit der iOS-Leiste.
   const progress = (el) => {
     const r = el.getBoundingClientRect();
-    return clamp(-r.top / Math.max(1, r.height - innerHeight));
+    return clamp(-r.top / Math.max(1, r.height - el.firstElementChild.offsetHeight));
+  };
+  const written = new Map();
+  const setIfChanged = (el, name, value) => {
+    const key = name + (el === sky ? "s" : el.id);
+    if (written.get(key) === value) return;
+    written.set(key, value);
+    el.style.setProperty(name, value);
   };
 
   let queued = false;
@@ -44,11 +53,11 @@
     queued = false;
     const a = progress(dawn);
     const d = progress(dusk);
-    dawn.style.setProperty("--p", a.toFixed(3));
-    dusk.style.setProperty("--p", d.toFixed(3));
+    setIfChanged(dawn, "--p", a.toFixed(3));
+    setIfChanged(dusk, "--p", d.toFixed(3));
     const night = d > 0 ? clamp((d - 0.35) / 0.5) : 1 - clamp((a - 0.15) / 0.5);
-    sky.style.setProperty("--night-o", night.toFixed(3));
-    sky.style.setProperty("--glow", Math.max(bump(a), bump(d)).toFixed(3));
+    setIfChanged(sky, "--night-o", night.toFixed(3));
+    setIfChanged(sky, "--glow", Math.max(bump(a), bump(d)).toFixed(3));
   };
   const request = () => {
     if (!queued) {
@@ -64,7 +73,7 @@
       seen.unobserve(e.target);
       tick(e.target);
     }
-  }, { threshold: 0.2 });
+  }, { threshold: 0, rootMargin: "0px 0px -15% 0px" });
 
   let on = false;
   const setMotion = () => {

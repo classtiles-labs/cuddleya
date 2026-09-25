@@ -34,3 +34,13 @@ class FigureTests(unittest.TestCase):
         before = {p.name: read(p) for p in FIG.glob("*.svg")}
         subprocess.run([sys.executable, str(ROOT / "_tools" / "copy_figures.py")], check=True, capture_output=True)
         self.assertEqual({p.name: read(p) for p in FIG.glob("*.svg")}, before)
+
+
+class CopyToolTests(unittest.TestCase):
+    def test_clean_refuses_svg_without_background(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("copy_figures", ROOT / "_tools" / "copy_figures.py")
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        with self.assertRaises(ValueError):
+            mod.clean('<svg viewBox="0 0 240 150"><circle r="1"/></svg>')

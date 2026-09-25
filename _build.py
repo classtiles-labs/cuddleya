@@ -5,6 +5,7 @@ Inhalte liegen in _src/<lang>/<name>.html, der Rahmen (Kopf, Navigation, Fuß) e
 Die Startseite bekommt zusätzlich story.css und story.js (eigenes Skript, kein Fremdcode).
 Ausgabe ins Repo-Verzeichnis. Ordner und Dateien mit Unterstrich liefert GitHub Pages (Jekyll) nicht aus.
 """
+import html
 import pathlib
 
 ROOT = pathlib.Path(__file__).parent
@@ -33,6 +34,11 @@ NAV = {
 SKIP = {"de": "Zum Inhalt", "en": "Skip to content"}
 STORY = ('\n  <link rel="stylesheet" href="/assets/story.css">'
          '\n  <script src="/assets/story.js" defer></script>')
+# Setzt .js/.motion vor dem ersten Zeichnen, damit Szenen und Einblendungen nicht nachträglich springen.
+EARLY = ('\n  <script>(d=>{d.classList.add("js");'
+         'if(!matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("motion");'
+         'setTimeout(()=>d.dataset.story||d.classList.remove("motion"),4000)}})'
+         '(document.documentElement)</script>')
 
 
 def url(lang, name):
@@ -45,7 +51,8 @@ def render(lang, name, other_name, title, desc, body):
     home = name == "index"
     de_url = url("de", name if lang == "de" else other_name)
     en_url = url("en", name if lang == "en" else other_name)
-    full_title = "Cuddleya" if home else f"{title} — Cuddleya"
+    full_title = html.escape("Cuddleya" if home else f"{title} — Cuddleya")
+    desc = html.escape(desc)
     current = ' aria-current="page"'
     nav = "".join(
         f'<a href="{url(lang, n)}"{current if n == name else ""}>{label}</a>'
@@ -61,7 +68,7 @@ def render(lang, name, other_name, title, desc, body):
 <html lang="{lang}">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">{EARLY if home else ""}
   <title>{full_title}</title>
   <meta name="description" content="{desc}">
   <meta name="theme-color" content="#0f1016">

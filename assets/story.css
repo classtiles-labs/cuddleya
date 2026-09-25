@@ -16,7 +16,7 @@
 
 /* Himmel (nur mit Skript) */
 .sky{display:none}
-.motion .sky{display:block;position:fixed;inset:0;z-index:-1;pointer-events:none}
+.motion .sky{display:block;position:fixed;inset:0 0 auto;height:100lvh;z-index:-1;pointer-events:none}
 .sky>div{position:absolute;inset:0}
 .l-day{background:linear-gradient(var(--rose-soft),var(--day) 60%)}
 .l-glow{background:linear-gradient(var(--dusk),var(--rose) 60%,var(--rose-soft));opacity:var(--glow,0)}
@@ -178,8 +178,9 @@
 .js .js-only{display:block}
 .figs{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:14px;margin:32px 0 0;padding:0;list-style:none}
 .figs li{margin:0}
-.fig-btn{display:block;width:100%;padding:8px 8px 10px;border:1px solid var(--hair);border-radius:var(--r-card);background:var(--tile);color:var(--ink);font:inherit;text-align:center;cursor:pointer;transition:border-color .2s,transform .2s}
-.fig-btn:hover{border-color:var(--hair2);transform:translateY(-2px)}
+.fig-btn{display:block;width:100%;padding:8px 8px 10px;border:1px solid var(--hair);border-radius:var(--r-card);background:var(--tile);color:var(--ink);font:inherit;text-align:center;cursor:default;transition:border-color .2s,transform .2s}
+.js .fig-btn{cursor:pointer}
+.js .fig-btn:hover{border-color:var(--hair2);transform:translateY(-2px)}
 .fig-art{position:relative;display:block;aspect-ratio:240/150;border-radius:14px;background:var(--paper)}
 .fig-art img{position:absolute;inset:0;width:100%;height:100%;transition:opacity .4s ease-in-out}
 .fig-btn .asleep{opacity:0}

@@ -20,7 +20,9 @@ CLOUD_NIGHT = ("#282a35", "#20222c")
 
 
 def clean(text):
-    text = re.sub(r'\s*<rect width="240" height="150"[^>]*/>', "", text, count=1)
+    text, found = re.subn(r'\s*<rect width="240" height="150"[^>]*/>', "", text, count=1)
+    if found != 1:
+        raise ValueError("Vorlage ohne Hintergrund-Rechteck: Form geändert, bitte prüfen")
     text = re.sub(r"<svg[^>]*>", HEAD, text, count=1)
     text = re.sub(r"<!--.*?-->", "", text, flags=re.S)
     text = re.sub(r">\s+<", "><", text)
