@@ -1,6 +1,7 @@
 # cuddleya.de
 
-Öffentliche Seiten der App Cuddleya: Start, Datenschutz, Impressum, Support (Deutsch, Englisch unter `/en`).
+Öffentliche Seiten der App Cuddleya: Start, Datenschutz, Impressum, Support, Nutzungsbedingungen (Deutsch,
+Englisch unter `/en`).
 
 Die Inhalte stehen in `_src/<sprache>/<seite>.html`, Kopf und Fuß erzeugt `_build.py`:
 

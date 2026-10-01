@@ -7,8 +7,8 @@ from html.parser import HTMLParser
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PAGES = {
-    "de": ["index", "datenschutz", "impressum", "support"],
-    "en": ["index", "privacy", "imprint", "support"],
+    "de": ["index", "datenschutz", "impressum", "support", "nutzungsbedingungen"],
+    "en": ["index", "privacy", "imprint", "support", "terms"],
 }
 # (Datei, de, en) — Namen aus BabyUI/Resources/Localizable.xcstrings (companion.*), Reihenfolge wie Companion.swift
 ANIMALS = [

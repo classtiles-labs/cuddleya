@@ -25,12 +25,17 @@ PAGES = [
      "Impressum der App Cuddleya.", "Legal notice of the Cuddleya app."),
     ("support", "support", "Support", "Support",
      "Hilfe und Kontakt zur App Cuddleya.", "Help and contact for the Cuddleya app."),
+    ("nutzungsbedingungen", "terms", "Nutzungsbedingungen", "Terms of Use",
+     "Nutzungsbedingungen (Endnutzer-Lizenzvertrag) der App Cuddleya.",
+     "Terms of use (end user licence agreement) of the Cuddleya app."),
 ]
 
 NAV = {
     "de": [("index", "Start"), ("datenschutz", "Datenschutz"), ("impressum", "Impressum"), ("support", "Support")],
     "en": [("index", "Home"), ("privacy", "Privacy"), ("imprint", "Imprint"), ("support", "Support")],
 }
+# Nur im Fuß, nicht in den Reitern oben.
+FOOTER_ONLY = {"de": [("nutzungsbedingungen", "Nutzungsbedingungen")], "en": [("terms", "Terms of Use")]}
 SKIP = {"de": "Zum Inhalt", "en": "Skip to content"}
 STORY = ('\n  <link rel="stylesheet" href="/assets/story.css">'
          '\n  <script src="/assets/story.js" defer></script>')
@@ -60,7 +65,8 @@ def render(lang, name, other_name, title, desc, body):
     )
     switch_label = "English" if lang == "de" else "Deutsch"
     switch_href = en_url if lang == "de" else de_url
-    footer = "".join(f'<a href="{url(lang, n)}">{label}</a>' for n, label in NAV[lang][1:])
+    footer = "".join(f'<a href="{url(lang, n)}">{label}</a>'
+                     for n, label in NAV[lang][1:] + FOOTER_ONLY[lang])
     content = body.strip()
     main = (f'<main id="inhalt">\n{content}\n</main>' if home
             else f'<main id="inhalt"><div class="wrap">\n{content}\n</div></main>')
