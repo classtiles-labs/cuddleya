@@ -16,9 +16,9 @@ FORBIDDEN = {
 SECRETS_FILE = ROOT / ".secret-words"
 REQUIRED = {
     "de": ["Orientierung, kein Plan", "etwa acht Wochen", "ersetzt keine ärztliche Beratung",
-           "kein Medizinprodukt", "Bald im App Store"],
+           "kein Medizinprodukt", "Im App Store laden"],
     "en": ["Guidance, not a plan", "about eight weeks", "does not replace medical advice",
-           "not a medical device", "Coming soon to the App Store"],
+           "not a medical device", "Get it on the App Store"],
 }
 TAG = {"de": "Beispiel", "en": "Example"}
 NAME = {"de": 1, "en": 2}

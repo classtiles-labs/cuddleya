@@ -4,7 +4,10 @@ import unittest
 
 from sitehelp import ROOT, all_pages, build, local_target, read
 
-EXTERNAL = re.compile(r'(?:src|href)="(?:https?:)?//(?!cuddleya\.de(?:/|"))')
+# The one outside address allowed: a plain link (nothing is loaded from Apple until it is
+# followed) to the app's App Store page, without a storefront so it opens in the reader's store.
+APP_STORE = 'href="https://apps.apple.com/app/id6811348563"'
+EXTERNAL = re.compile(r'(?:src|href)="(?:https?:)?//(?!cuddleya\.de(?:/|"))(?!apps\.apple\.com/app/id6811348563")')
 REF = re.compile(r'(?:src|href)="(/[^"]*)"')
 
 
@@ -34,6 +37,14 @@ class FrameTests(unittest.TestCase):
                 else:
                     self.assertNotIn("story.", html)
                     self.assertIn('<body class="doc">', html)
+
+    def test_the_app_store_link_is_only_an_anchor_on_the_home_pages(self):
+        for name, _, path in all_pages():
+            html = read(path)
+            with self.subTest(page=str(path.relative_to(ROOT))):
+                self.assertNotRegex(html, r'src="https://apps\.apple\.com')
+                if name == "index":
+                    self.assertEqual(html.count(f'<a class="cta" {APP_STORE}>'), 2)
 
     def test_no_third_party_resources(self):
         for _, _, path in all_pages():
