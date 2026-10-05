@@ -44,7 +44,7 @@ class FrameTests(unittest.TestCase):
             with self.subTest(page=str(path.relative_to(ROOT))):
                 self.assertNotRegex(html, r'src="https://apps\.apple\.com')
                 if name == "index":
-                    self.assertEqual(html.count(f'<a class="cta" {APP_STORE}>'), 2)
+                    self.assertEqual(html.count(f'<a class="store" {APP_STORE}><img src="/assets/badge-appstore-'), 2)
 
     def test_no_third_party_resources(self):
         for _, _, path in all_pages():
